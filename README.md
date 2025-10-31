@@ -10,6 +10,6 @@
 
 
 ## Ethan Shafran
-Jamie Deursch (@https://github.com/9711519-png)
-Oliver Gringich (@https://github.com/pwspew)
-Logan Bywater (@https://github.com/LOGAN-bruh)
+! [Jamie Deursch] (https://github.com/9711519-png)
+! [Oliver Gringich] (https://github.com/pwspew)
+! [Logan Bywater] (https://github.com/LOGAN-bruh)
