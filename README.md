@@ -7,13 +7,15 @@
 
 ## Computer Porgramming
 
-## Classes
-*
-*
+## classes
+[Ethan Shafran] (Readme.md)
+[Jamie Duersch](Timeline)
+[Oliver Gringich](UI mockup)
+[Loagan Bywater](Diagram)
 
 ## Collaborators
-* [Ethan Shafran](https://github.com/9730837)
-* [Jamie Duersch](https://github.com/9711519-png)
-* [Oliver Gringich](https://github.com/pwspew)
-* [Logan Bywater](https://github.com/LOGAN-bruh)
+* [Ethan Shafran](https://github.com/9730837) 
+* [Jamie Duersch](https://github.com/9711519-png) 
+* [Oliver Gringich](https://github.com/pwspew) 
+* [Logan Bywater](https://github.com/LOGAN-bruh) 
   
