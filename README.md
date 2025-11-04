@@ -8,10 +8,10 @@
 ## Computer Porgramming
 
 ## classes
-[Ethan Shafran] (Readme.md)
+[Ethan Shafran Readme.md] ()
 [Jamie Duersch Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
-[Oliver Gringich](UI mockup)
-[Loagan Bywater](Diagram)
+[Oliver Gringich UI mockup]()
+[Loagan Bywater Diagram]()
 
 ## Collaborators
 * [Ethan Shafran](https://github.com/9730837) 
