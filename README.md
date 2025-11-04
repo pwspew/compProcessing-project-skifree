@@ -7,10 +7,12 @@
 
 ## Computer Porgramming
 
-
+## Classes
+*
+*
 
 ## Collaborators
-* [Asswipe](https://github.com/9730837)
+* [Ethan Shafran](https://github.com/9730837)
 * [Jamie Duersch](https://github.com/9711519-png)
 * [Oliver Gringich](https://github.com/pwspew)
 * [Logan Bywater](https://github.com/LOGAN-bruh)
