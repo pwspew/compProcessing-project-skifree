@@ -9,7 +9,7 @@
 
 ## classes
 [Ethan Shafran] (Readme.md)
-[Jamie Duersch](Timeline)
+[Jamie Duersch](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
 [Oliver Gringich](UI mockup)
 [Loagan Bywater](Diagram)
 
