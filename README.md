@@ -9,11 +9,11 @@
 ![UMLdiagramSkiFree](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png)
 
 ## Timeline
+![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
 
 ## Quick Mockup of UI
 ![UImockup](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skifree.png)
 
-![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
 ## Collaborators
 * [Ethan Shafran (README creator)](https://github.com/9730837) 
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
