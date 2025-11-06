@@ -7,15 +7,12 @@
 
 ## Computer Porgramming
 
-## classes
-[Ethan Shafran Readme.md] 
-[Jamie Duersch Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
-[Oliver Gringich UI mockup]
-[Loagan Bywater Diagram]
+## Timeline
 
+![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
 ## Collaborators
-* [Ethan Shafran](https://github.com/9730837) 
-* [Jamie Duersch](https://github.com/9711519-png) 
-* [Oliver Gringich](https://github.com/pwspew) 
-* [Logan Bywater](https://github.com/LOGAN-bruh) 
+* [Ethan Shafran (README creator](https://github.com/9730837) 
+* [Jamie Duersch Timeliner](https://github.com/9711519-png) 
+* [Oliver Gringich UI mockup](https://github.com/pwspew) 
+* [Logan Bywater Diagram ](https://github.com/LOGAN-bruh) 
   
