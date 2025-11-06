@@ -10,7 +10,6 @@ Ski Free is a very old fast-paced, chaotic downhill adventure where you carve th
 
 ## UML diagram:
 ![UMLdiagramSkiFree](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png)
-! [SkiFreeImages](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Ski%20Free%20Image.png)
 
 ## Timeline
 <img src="https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/16-PeriodProjectTimeline.png" alt="theoriginal" width="550">
