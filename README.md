@@ -9,7 +9,7 @@
 ![UMLdiagramSkiFree](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png)
 
 ## Timeline
-![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
+![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/ProjectTimeline.png)
 
 ## Quick Mockup of UI
 ![UImockup](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skifree.png)
