@@ -51,16 +51,50 @@ class Skier {
   }
 
   void drawRightCharacter() {
-    fill(255, 100, 100); rect(-6, -11, 12, 21); // body
-    fill(0, 0, 150); rect(-6, 10, 12, 15); // legs
-    stroke(150, 80, 0); strokeWeight(3); line(-10, 10, -6, 45); line(10, 10, 16, 48); // skis
-    noStroke(); fill(0); rect(-10, 25, 6, 10); rect(4, 25, 6, 10); // boots
-    fill(255, 220, 180); ellipse(0, -17, 12, 12); // head
-    fill(0); rect(-6, -26, 12, 3); fill(50, 100, 255); rect(-4, -31, 8, 5); // hat
-    stroke(0); strokeWeight(1); line(-10, -5, -16, 28); line(10, -5, 22, 28); // poles
-    stroke(1); strokeWeight(2); // head/buttons
-    line(3,1,3,1); line(3,5,3,5); line(3,-4,3,-4);
-    line(4,-20,4,-20); line(-1,-20,-1,-20);
+    fill(255, 100, 100); 
+    rect(-6, -11, 12, 21); 
+    
+    // body
+    fill(0, 0, 150);
+    rect(-6, 10, 12, 15);
+    
+    // legs
+    stroke(150, 80, 0);
+    strokeWeight(3); 
+    line(-10, 10, -6, 45); 
+    line(10, 10, 16, 48); 
+    
+    // skis
+    noStroke(); fill(0); 
+    rect(-10, 25, 6, 10); 
+    rect(4, 25, 6, 10); 
+    
+    // boots
+    fill(255, 220, 180); 
+    ellipse(0, -17, 12, 12); 
+    
+    // head
+    fill(0); 
+    rect(-6, -26, 12, 3); 
+    fill(50, 100, 255); 
+    rect(-4, -31, 8, 5); 
+
+    // hat
+    stroke(0);
+    strokeWeight(1); 
+    line(-10, -5, -16, 28); 
+    line(10, -5, 22, 28); 
+    
+    // poles
+    stroke(1); 
+    strokeWeight(2); 
+
+    // head/buttons
+    line(3,1,3,1); 
+    line(3,5,3,5); 
+    line(3,-4,3,-4);
+    line(4,-20,4,-20); 
+    line(-1,-20,-1,-20);
   }
 
   // ---------- Movement ----------
