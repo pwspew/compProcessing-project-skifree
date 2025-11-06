@@ -6,12 +6,9 @@
 
 
 ## UML diagram:
-![umldiagram](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png)
+![UMLdiagramSkiFree](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png)
 
 ## Timeline
-
-## UML
-![SkifreeEngineUML](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/Skifree.png?raw=true)
 
 ## Quick Mockup of UI
 ![UImockup](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skifree.png)
