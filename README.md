@@ -1,6 +1,5 @@
 # SkiFree !!
-![theoriginal](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/theogskifree.jpg)
-
+<img src="https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/theogskifree.jpg" alt="theoriginal" width= "400">
 ## Ski Free is a very old fast-paced, chaotic downhill adventure where you carve through trees and rocks, and outrun monstrous snow beasts in a silly reimagining of the classic SkiFree.
 
 
