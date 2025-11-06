@@ -15,4 +15,4 @@
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
 * [Oliver Gringich (UI mockup)](https://github.com/pwspew) 
 * [Logan Bywater (Diagram) ](https://github.com/LOGAN-bruh) 
-  
+*[Adam Fredrick (Coder, UI)](https://github.com/adamfredrick/portfolio)
