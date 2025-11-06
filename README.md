@@ -1,6 +1,6 @@
 # SkiFree !!
 
-## Ski Free is a very old fast-paced, chaotic downhill adventure where you carve through trees and rocks, and outrun monstrous snow beasts in a silly reimagining of the classic SkiFree.]
+## Ski Free is a very old fast-paced, chaotic downhill adventure where you carve through trees and rocks, and outrun monstrous snow beasts in a silly reimagining of the classic SkiFree.
 
 
 ## UML diagram:
