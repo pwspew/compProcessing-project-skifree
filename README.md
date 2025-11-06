@@ -5,9 +5,12 @@
 # Ski Free is a very oldfast-paced, chaotic downhill adventure where you carve through ever-changing slopes, pull off wild tricks, and outrun monstrous snow beasts in a modern, humor-packed reimagining of the classic SkiFree.]
 
 
-## Computer Porgramming
+## Computer Programming
 
 ## Timeline
+
+## Quick Mockup of UI
+![UImockup](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skifree.png)
 
 ![Timeline](https://github.com/pwspew/compProcessing-project-skifree/blob/main/Project%20Timeline.pdf)
 ## Collaborators
