@@ -1,9 +1,6 @@
 // Logan Bywater | SkiFree UI | 11/6/25
-// Title screen with smooth 10-color fade animation
-// Modified to include a game state and object-oriented game screen
-// Now spawns objects based on key presses
+// Title screen 10-color fade animation
 
-// --- Global Variables ---
 color[] titleColors;
 float colorTimer = 0;
 
