@@ -34,20 +34,3 @@ class Skier {
   void drawRightCharacter() {}
   
   void draw90RightCharacter() {}
-
-  // ---------- Movement ----------
-  void moveLeft() {
-    dir = -1;
-    direction = -1;
-  }
-
-  void moveRight() {
-    dir = 1;
-    direction = 1;
-  }
-
-  void moveStraight() {
-    dir = 0;
-    direction = 0;
-  }
-}
