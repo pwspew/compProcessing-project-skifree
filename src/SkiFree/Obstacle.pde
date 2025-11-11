@@ -10,6 +10,6 @@ class Obstacle {
   void display() {
     fill(0, 150, 0);
     noStroke();
-    ellipse(x, y, 20, 20); // adjust size or shape as needed
+    ellipse(x, y, 20, 20);
   }
 }
