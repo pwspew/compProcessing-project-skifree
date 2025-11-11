@@ -201,12 +201,12 @@ void drawGameScreen() {
     o.display();
   }
   
-  // Draw the Yeti (if it exists)
+  // Draw the Yeti 
   if (yeti != null) {
     yeti.display();
   }
   
-  // Draw the Skier (if it exists)
+  // Draw the Skier
   if (skier != null) {
     skier.display();
   }
