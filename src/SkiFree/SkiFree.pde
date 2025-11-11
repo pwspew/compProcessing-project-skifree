@@ -12,14 +12,14 @@ String gameState; // "TITLE" or "GAME"
 // --- Game Objects ---
 // These will be "called into existence" by key presses
 Skier skier;
-Yeti yeti;
+//Yeti yeti;
 // Use an ArrayList, which is perfect for adding unknown number of objects
 ArrayList<Obstacle> obstacles;
 
 
 // --- Main Setup ---
 void setup() {
-  size(400, 600);
+  size(600, 900);
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
@@ -84,10 +84,10 @@ void keyPressed() {
     }
     
     // 'Y' to spawn Yeti (if one doesn't exist)
-    if (key == 'y' || key == 'Y') {
-       if (yeti == null) { // Only add one yeti
-        yeti = new Yeti(width / 2, 100);
-       }
+    //if (key == 'y' || key == 'Y') {
+    //   if (yeti == null) { // Only add one yeti
+    //    yeti = new Yeti(width / 2, 100);
+    //   }
     }
     
     // 'O' to spawn a new Obstacle
@@ -99,7 +99,7 @@ void keyPressed() {
       obstacles.add(new Obstacle(oX, oY, oType));
     }
   }
-}
+
 
 // --- Game Setup Function ---
 // This is called ONCE when you press SPACE from the title screen
@@ -108,7 +108,7 @@ void setupGame() {
   
   // Start with no objects
   skier = null;
-  yeti = null;
+  //yeti = null;
   
   // Clear any old obstacles from the previous game
   obstacles.clear();
@@ -136,7 +136,7 @@ void drawTitleScreen() {
   // --- Title Text ---
   fill(255);
   textSize(48);
-  text("SkiFree X", width/2, height/2 - 190);
+  text("SkiFree 2025", width/2, height/2 - 190);
   stroke(255);
   strokeWeight(5);
   line(width/4 - 15, height/2 - 90, 3 * width/4 +15, height/2 - 90);
@@ -174,17 +174,17 @@ void drawTitleScreen() {
   textSize(18);
   fill(255); // Reset fill color for text
   noStroke(); // Reset stroke for text
-  text("Press SPACE to Begin", width/2, height/2 - 40);
+  text("Press space to do start", width/2, height/2 - 40);
 
   // --- Animated prompt glow ---
-  float glow = abs(sin(millis() * 0.004)) * 255;
-  fill(255, glow);
-  text("Press SPACE to Begin", width/2, height/2 - 40);
+  //float glow = abs(sin(millis() * 0.060)) * 255;
+  //fill(255, glow);
+  //text("Press SPACE to Begin", width/2, height/2 - 40);
 
   // --- Footer ---
   textSize(14);
   fill(230);
-  text("Developed by: The SkiFree Group © (2025)", width/2, height - 30);
+  text("Developed by the goats a.k.a. Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
 }
 
 // This is the new game screen function
@@ -202,9 +202,9 @@ void drawGameScreen() {
   }
   
   // Draw the Yeti 
-  if (yeti != null) {
-    yeti.display();
-  }
+  //if (yeti != null) {
+  //  yeti.display();
+  //}
   
   // Draw the Skier
   if (skier != null) {
