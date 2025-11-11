@@ -1,5 +1,5 @@
 // Logan Bywater | SkiFree UI | 11/6/25
-// Title screen with smooth 10-color fade animation
+// SkiFreeEngine with Title Screen and UI
 
 color[] titleColors;
 float colorTimer = 0;
