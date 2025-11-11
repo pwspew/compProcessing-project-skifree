@@ -5,15 +5,23 @@ color[] titleColors;
 float colorTimer = 0;
 
 String gameState; // "TITLE" or "GAME"
+
+// --- Game Objects ---
+// These will be "called into existence" by key presses
 Skier skier;
+//Yeti yeti;
+// Use an ArrayList, which is perfect for adding unknown number of objects
 ArrayList<Obstacle> obstacles;
 
+
+// --- Main Setup ---
 void setup() {
   size(600, 900);
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
 
+  // Start at the title screen
   gameState = "TITLE";
 
   // Define 10 colors for the fade cycle
@@ -30,9 +38,13 @@ void setup() {
     color(192, 112, 224),   // Lavender
   };
   
+  // Initialize the ArrayList
   obstacles = new ArrayList<Obstacle>();
 }
 
+
+// --- Main Draw Loop (State Router) ---
+// This function checks the game state and calls the correct drawing function
 void draw() {
   if (gameState.equals("TITLE")) {
     drawTitleScreen();
@@ -41,6 +53,7 @@ void draw() {
   }
 }
 
+// --- Input Handling ---
 void keyPressed() {
   // If we're on the TITLE screen and SPACE is pressed
   if (gameState.equals("TITLE") && (key == ' ' || keyCode == 32)) {
@@ -120,46 +133,50 @@ void drawTitleScreen() {
   // --- Title Text ---
   fill(255);
   textSize(48);
-  text("SkiFree 2025", width/2, height/2 - 200);
+  text("SkiFree 2025", width/2, height/2 - 190);
   stroke(255);
   strokeWeight(5);
   line(width/4 - 15, height/2 - 90, 3 * width/4 +15, height/2 - 90);
   line(width/4 - 5, height/2 - 70, 3 * width/4 +5, height/2 - 70);
   line(width/4 - 5, height/2 - 10, 3 * width/4 +5, height/2 - 10);
   line(width/4 - 15, height/2 + 10, 3 * width/4 +15, height/2 + 10);
-  line(200, 260, 200, 309); // Tree trunk
-  line(200, 261, 210, 275); // Leaves #1
-  line(200, 261, 190, 275);
-  line(200, 276, 210, 290);
-  line(200, 276, 190, 290);
-  line(250, 240, 250, 309); // Tree trunk
-  line(250, 240, 260, 260); // Leaves #2
-  line(250, 240, 240, 260);
-  line(250, 260, 260, 280);
-  line(250, 260, 240, 280);
-  line(300, 260, 300, 309); // Tree trunk
-  line(300, 261, 310, 275); // Leaves #3
-  line(300, 261, 290, 275);
-  line(300, 276, 310, 290);
-  line(300, 276, 290, 290);
-  line(350, 240, 350, 309); // Tree trunk
-  line(350, 240, 360, 260); // Leaves #4
-  line(350, 240, 340, 260);
-  line(350, 260, 360, 280);
-  line(350, 260, 340, 280);
-  line(400, 310, 400, 359); // Tree trunk
-  line(400, 311, 410, 325); // Leaves #5
-  line(400, 311, 390, 325);
-  line(400, 326, 410, 340);
-  line(400, 326, 390, 340);
+  line(100, 160, 100, 209); // Tree trunk
+  line(100, 161, 110, 175); // Leaves #1
+  line(100, 161, 90, 175);
+  line(100, 176, 110, 190);
+  line(100, 176, 90, 190);
+  line(150, 140, 150, 209); // Tree trunk
+  line(150, 140, 160, 160); // Leaves #2
+  line(150, 140, 140, 160);
+  line(150, 160, 160, 180);
+  line(150, 160, 140, 180);
+  line(200, 160, 200, 209); // Tree trunk
+  line(200, 161, 210, 175); // Leaves #3
+  line(200, 161, 190, 175);
+  line(200, 176, 210, 190);
+  line(200, 176, 190, 190);
+  line(250, 140, 250, 209); // Tree trunk
+  line(250, 140, 260, 160); // Leaves #4
+  line(250, 140, 240, 160);
+  line(250, 160, 260, 180);
+  line(250, 160, 240, 180);
+  line(300, 160, 300, 209); // Tree trunk
+  line(300, 161, 310, 175); // Leaves #5
+  line(300, 161, 290, 175);
+  line(300, 176, 310, 190);
+  line(300, 176, 290, 190);
   strokeWeight(2);
   stroke(2);
 
   textSize(18);
-  fill(255); 
-  noStroke(); 
-  text("Press SPACE to start", width/2, height/2 - 40);
+  fill(255); // Reset fill color for text
+  noStroke(); // Reset stroke for text
+  text("Press space to do start", width/2, height/2 - 40);
 
+  // --- Animated prompt glow ---
+  //float glow = abs(sin(millis() * 0.060)) * 255;
+  //fill(255, glow);
+  //text("Press SPACE to Begin", width/2, height/2 - 40);
 
   // --- Footer ---
   textSize(14);
@@ -167,8 +184,16 @@ void drawTitleScreen() {
   text("Developed by the goats a.k.a. Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
 }
 
+// This is the new game screen function
 void drawGameScreen() {
+  // Draw a white "snow" background
   background(245, 245, 255);
+
+  // --- Draw all game objects ---
+  // We "call" them by telling them to display themselves
+  
+  // Draw all the obstacles
+  // Iterate over the ArrayList
   for (Obstacle o : obstacles) {
     o.display();
   }
@@ -183,6 +208,7 @@ void drawGameScreen() {
     skier.display();
   }
 
+  // --- UI Text ---
   fill(0, 150);
   textSize(16);
   textAlign(CENTER, CENTER);
