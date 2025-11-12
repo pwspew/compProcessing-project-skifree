@@ -140,12 +140,12 @@ void drawTitleScreen() {
   line(width/4 - 5, height/2 - 70, 3 * width/4 +5, height/2 - 70);
   line(width/4 - 5, height/2 - 10, 3 * width/4 +5, height/2 - 10);
   line(width/4 - 15, height/2 + 10, 3 * width/4 +15, height/2 + 10);
-  line(100, 160, 100, 209); // Tree trunk
-  line(100, 161, 110, 175); // Leaves #1
-  line(100, 161, 90, 175);
-  line(100, 176, 110, 190);
-  line(100, 176, 90, 190);
-  line(150, 140, 150, 209); // Tree trunk
+  line(width/2 - 125, height/2 - 90, width/2 - 125, height/2 - 140 ); // Tree trunk
+  line(175, 310, 165, 325); // Leaves #1
+  line(175, 310, 185, 325);
+  line(175, 325, 165, 340);
+  line(175, 325, 185, 340);
+  line(225, 300, 225, 209); // Tree trunk
   line(150, 140, 160, 160); // Leaves #2
   line(150, 140, 140, 160);
   line(150, 160, 160, 180);
@@ -171,12 +171,12 @@ void drawTitleScreen() {
   textSize(18);
   fill(255); // Reset fill color for text
   noStroke(); // Reset stroke for text
-  text("Press space to do start", width/2, height/2 - 40);
+  text("Press SPACE to  Begin", width/2, height/2 - 40);
 
   // --- Animated prompt glow ---
-  //float glow = abs(sin(millis() * 0.060)) * 255;
-  //fill(255, glow);
-  //text("Press SPACE to Begin", width/2, height/2 - 40);
+    //float glow = abs(sin(millis() * 0.060)) * 255;
+    //fill(255, glow);
+    //text("Press SPACE to Begin", width/2, height/2 - 40);
 
   // --- Footer ---
   textSize(14);
