@@ -181,7 +181,7 @@ void drawTitleScreen() {
   // --- Footer ---
   textSize(14);
   fill(230);
-  text("Developed by the goats a.k.a. Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
+  text("Developed by Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
 }
 
 // This is the new game screen function
