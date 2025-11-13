@@ -1,5 +1,4 @@
-////Yetti code 
-//// Yetti Code 
+////Yetti code  
 //Skier skier;
 //ArrayList<Obstacle> obstacles;
 //Yeti yeti;
