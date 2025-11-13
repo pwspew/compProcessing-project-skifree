@@ -1,4 +1,3 @@
-
 class Skier {
   float x, y;
   float dir = 0;
@@ -23,7 +22,8 @@ class Skier {
 
   void drawStraightCharacter() {
     fill(255, 0, 0);
-    ellipse(0, 0, 20, 20);
+    ellipse(100, 100, 20, 20);
+    
   }
 
   void drawLeftCharacter() {}
