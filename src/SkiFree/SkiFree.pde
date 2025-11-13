@@ -16,7 +16,7 @@ float speed4 = 2.3;
 
 //Game Objects
 Skier skier;
-//Yeti yeti;
+//Yeti yeti; (broken for the moment)
 ArrayList<Obstacle> obstacles;
 
 //Main Setup
