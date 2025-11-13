@@ -1,53 +1,40 @@
-// Logan Bywater | SkiFree UI | 11/6/25
-// Title screen 10-color fade animation
+
 
 color[] titleColors;
 float colorTimer = 0;
 
-String gameState; // "TITLE" or "GAME"
-float z = 0; //Title screen moving objects
+String gameState; 
+float z = 0; 
 float x = 0;
 float a = 0;
 float b = 0;
-float speed = 2; //Title screen moving objects
+float speed = 2; 
 float speed2 = 2.1;
 float speed3 = 2.2;
 float speed4 = 2.3;
 
-//Game Objects
 Skier skier;
 //Yeti yeti; (broken for the moment)
 ArrayList<Obstacle> obstacles;
 
-//Main Setup
 void setup() {
   size(600, 900);
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
 
-  // Start at the title screen
+  
   gameState = "TITLE";
 
-  // Define 10 colors for the fade cycle
+
   titleColors = new color[] {
-    color(255, 100, 100),   // red-pink
     color(255, 180, 80),    // orange
-    color(255, 255, 100),   // yellow
-    color(150, 255, 150),   // light green
     color(100, 200, 255),   // sky blue
-    color(150, 100, 255),   // purple
-    color(255, 120, 200),   // magenta
-    color(80, 80, 255),     // deep blue
-    color(100, 255, 200),   // teal
-    color(192, 112, 224),   // lavender
   };
   
-  // Initialize the ArrayList
   obstacles = new ArrayList<Obstacle>();
 }
 
-// Main Draw
 void draw() {
   if (gameState.equals("TITLE")) {
     drawTitleScreen();
@@ -55,8 +42,6 @@ void draw() {
     drawGameScreen();
   }
 }
-
-// Input Handling
 void keyPressed() {
   // If we're on the TITLE screen and SPACE is pressed
   if (gameState.equals("TITLE") && (key == ' ' || keyCode == 32)) {
