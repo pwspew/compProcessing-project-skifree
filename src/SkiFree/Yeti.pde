@@ -1,4 +1,4 @@
-// Yeti Code | Adam Fredrick
+// Yeti Code | Adam Fredrick | NOV 11 2025
 
 Yeti yeti;
 float worldOffsetY = 0;
