@@ -23,4 +23,4 @@ Ski Free is a very old fast-paced, chaotic downhill adventure where you carve th
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
 * [Oliver Gringich (UI mockup)](https://github.com/pwspew) 
 * [Logan Bywater (Diagram) ](https://github.com/LOGAN-bruh) 
-* [Adam Fredrick (Coder, UI)](https://github.com/adam-fredrick)
+* [Adam Fredrick (Title + 1-Sentence Pitch)](https://github.com/adam-fredrick)
