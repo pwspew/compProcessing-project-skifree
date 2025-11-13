@@ -1,5 +1,4 @@
-// Logan Bywater | SkiFree UI | 11/6/25
-// Title screen 10-color fade animation
+// Ollie G Logan B Ethan S Jamie D Adam F
 
 color[] titleColors;
 float colorTimer = 0;
@@ -140,31 +139,8 @@ void drawTitleScreen() {
   line(width/4 - 5, height/2 - 70, 3 * width/4 +5, height/2 - 70);
   line(width/4 - 5, height/2 - 10, 3 * width/4 +5, height/2 - 10);
   line(width/4 - 15, height/2 + 10, 3 * width/4 +15, height/2 + 10);
-  line(width/2 - 125, height/2 - 90, width/2 - 125, height/2 - 140 ); // Tree trunk
-  line(175, 310, 165, 325); // Leaves #1
-  line(175, 310, 185, 325);
-  line(175, 325, 165, 340);
-  line(175, 325, 185, 340);
-  line(225, 300, 225, 209); // Tree trunk
-  line(150, 140, 160, 160); // Leaves #2
-  line(150, 140, 140, 160);
-  line(150, 160, 160, 180);
-  line(150, 160, 140, 180);
-  line(200, 160, 200, 209); // Tree trunk
-  line(200, 161, 210, 175); // Leaves #3
-  line(200, 161, 190, 175);
-  line(200, 176, 210, 190);
-  line(200, 176, 190, 190);
-  line(250, 140, 250, 209); // Tree trunk
-  line(250, 140, 260, 160); // Leaves #4
-  line(250, 140, 240, 160);
-  line(250, 160, 260, 180);
-  line(250, 160, 240, 180);
-  line(300, 160, 300, 209); // Tree trunk
-  line(300, 161, 310, 175); // Leaves #5
-  line(300, 161, 290, 175);
-  line(300, 176, 310, 190);
-  line(300, 176, 290, 190);
+ 
+
   strokeWeight(2);
   stroke(2);
 
@@ -212,6 +188,6 @@ void drawGameScreen() {
   fill(0, 150);
   textSize(16);
   textAlign(CENTER, CENTER);
-  noStroke(); // Make sure text isn't stroked
+  noStroke(); 
   text("Press 'S' (Skier), 'Y' (Yeti), 'O' (Obstacle) | 'R' to Reset", width / 2, height - 25);
 }
