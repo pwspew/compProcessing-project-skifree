@@ -96,7 +96,6 @@ void keyPressed() {
 
 void restartgame() {
   skier = null;
-  //yeti = null;
   obstacles.clear();
 }
 
