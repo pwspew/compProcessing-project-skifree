@@ -22,7 +22,7 @@ void setup() {
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
-  title = createFont("Impacted2.0.ttf", 15);
+  title = createFont("Impacted.ttf", 15);
   other = createFont("cityburn-⌐.ttf", 7);
   title2 =createFont("impact.ttf", 8);
 
