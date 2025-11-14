@@ -3,157 +3,165 @@
 color[] titleColors;
 float colorTimer = 0;
 
-String gameState; 
-float z = 0; 
+String gameState;
+float z = 0;
 float x = 0;
 float a = 0;
 float b = 0;
-float speed = 2; 
+float speed = 2;
 float speed2 = 2.1;
 float speed3 = 2.2;
 float speed4 = 2.3;
-
+PFont title, title2, other;
 Skier skier;
-//Yeti yeti; (broken for the moment)
+//Yeti yeti;
 ArrayList<Obstacle> obstacles;
-
+//thanks daFont.com for all the cool fonts and stuff
 void setup() {
   size(600, 900);
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
+  title = createFont("Impacted2.0.ttf", 15);
+  other = createFont("cityburn-⌐.ttf", 7);
+  title2 =createFont("impact.ttf", 8);
 
-  
   gameState = "TITLE";
 
 
   titleColors = new color[] {
-    color(255, 180, 80),    // orange
-    color(100, 200, 255),   // sky blue
+    color(255, 180, 80), // orange
+    color(100, 200, 255), // sky blue
   };
-  
+
   obstacles = new ArrayList<Obstacle>();
 }
 
 void draw() {
   if (gameState.equals("TITLE")) {
-    drawTitleScreen();
+    titlescreen();
   } else if (gameState.equals("GAME")) {
-    drawGameScreen();
+    Gamestart();
   }
 }
 void keyPressed() {
-  // If we're on the TITLE screen and SPACE is pressed
+
   if (gameState.equals("TITLE") && (key == ' ' || keyCode == 32)) {
-    // Change the state to GAME
+
     gameState = "GAME";
-    setupGame();
+    restartgame();
   }
-  
-  // If we're in the GAME
+
+
   else if (gameState.equals("GAME")) {
-    // 'R' to Reset
+
     if (key == 'r' || key == 'R') {
       gameState = "TITLE";
     }
 
-    // 'S' to spawn Skier (if one doesn't exist)
+
     if (key == 's' || key == 'S') {
       if (skier == null) {
         skier = new Skier(width / 2, height / 2 + 50);
       }
     }
 
-    // 'Y' to spawn Yeti (if one doesn't exist)
+
     //if (key == 'y' || key == 'Y') {
     //  if (yeti == null) {
     //    yeti = new Yeti(width / 2, 100);
     //  }
     //}
 
-    // 'O' to spawn a new Obstacle
+
     if (key == 'o' || key == 'O') {
       float oX = random(width);
       float oY = random(150, height - 50);
-      int oType = (int)random(2); // 0 for tree, 1 for rock
+      int oType = (int)random(2); 
       obstacles.add(new Obstacle(oX, oY, oType));
     }
   }
 }
 
-//Game Setup Function
-void setupGame() {
+
+void restartgame() {
   skier = null;
   //yeti = null;
   obstacles.clear();
 }
 
-// Drawing Functions 
 
-// Title screen fade animation
-void drawTitleScreen() {
+
+
+void titlescreen() {
   colorTimer = millis() * 0.0002;
   int TC1 = int(colorTimer) % titleColors.length;
   int TC2 = (TC1 + 1) % titleColors.length;
   float blendColor = colorTimer - int(colorTimer);
   color c = lerpColor(titleColors[TC1], titleColors[TC2], blendColor);
-  
+
   background(c);
   
-  // --- Overlay ---
-  fill(0, 120);
-  rect(0, 0, width, height);
-
-  // --- Moving rectangles ---
-  fill(255); // reset fill to white so they show up
+  fill(255);
   noStroke();
-
+ rectMode(CORNER);
   rect(z + 150, height/2 + 2, 20, 15, 5);
   z += speed;
-  if (z > width/2 - 10 || z < -10) 
-  speed *= -1;
+  if (z > width/2 - 10 || z < -10)
+    speed *= -1;
 
   rect(x + 150, height/2 - 18, 20, 15, 5);
   x += speed2;
-  if (x > width/2 - 10 || x < -10) 
-  speed2 *= -1;
+  if (x > width/2 - 10 || x < -10)
+    speed2 *= -1;
 
   rect(a + 150, height/2 - 78, 20, 15, 5);
   a += speed3;
-  if (a > width/2 - 10 || a < -10) 
-  speed3 *= -1;
+  if (a > width/2 - 10 || a < -10)
+    speed3 *= -1;
 
   rect(b + 150, height/2 - 98, 20, 15, 5);
   b += speed4;
-  if (b > width/2 - 10 || b < -10) 
-  speed4 *= -1;
-  
-  // Title Text
+  if (b > width/2 - 10 || b < -10)
+    speed4 *= -1;
+  fill(c);
+    stroke(20);
+    rectMode(CENTER);
+    rect(width/2, height/2 - 185, 480, 100);
+    fill(255);
+textAlign(CENTER, CENTER);
+  textFont(title2);
+  textSize(65);
   fill(255);
-  textSize(48);
-  text("SkiFree 2025", width/2, height/2 - 190);
+  text("SkiFree!!! 2025!!!!", width/2  , height/2 - 190);
+  textFont(title);
+   textSize(80);
+  
+  //text("FREE", width/2  , height/2 - 194);
   stroke(255);
-  strokeWeight(5);
+  strokeWeight(2);
   line(width/4 - 15, height/2 - 90, 3 * width/4 +15, height/2 - 90);
   line(width/4 - 5, height/2 - 70, 3 * width/4 +5, height/2 - 70);
   line(width/4 - 5, height/2 - 10, 3 * width/4 +5, height/2 - 10);
   line(width/4 - 15, height/2 + 10, 3 * width/4 +15, height/2 + 10);
 
+  textFont(other);
   strokeWeight(2);
   stroke(2);
-  textSize(18);
+  textSize(23);
   fill(255);
   noStroke();
-  text("Press SPACE to Begin", width/2, height/2 - 40);
+  text("Press space to Begin", width/2, height/2 - 40);
 
-  // Footer
+
   textSize(14);
   fill(230);
   text("Developed by the goats a.k.a. Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
+
 }
 
 // Game screen
-void drawGameScreen() {
+void Gamestart() {
   background(245, 245, 255);
 
   for (Obstacle o : obstacles) {
