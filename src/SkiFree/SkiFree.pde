@@ -2,8 +2,8 @@
 
 color[] titleColors;
 float colorTimer = 0;
+char gameStateChar = 'M'; //M = Menu, G = Game, S = Stats, P = Pause, X = Settings (Hard, Easy, medium)/speed
 
-String gameState;
 float z = 0;
 float x = 0;
 float a = 0;
@@ -16,18 +16,18 @@ PFont title, title2, other;
 Skier skier;
 //Yeti yeti;
 ArrayList<Obstacle> obstacles;
+
 //thanks daFont.com for all the cool fonts and stuff
 void setup() {
   size(600, 900);
+  
   textAlign(CENTER, CENTER);
   textSize(36);
   noStroke();
+  
   title = createFont("Impacted.ttf", 15);
   other = createFont("cityburn-⌐.ttf", 7);
   title2 =createFont("impact.ttf", 8);
-
-  gameState = "TITLE";
-
 
   titleColors = new color[] {
     color(255, 180, 80), // orange
@@ -38,25 +38,43 @@ void setup() {
 }
 
 void draw() {
-  if (gameState.equals("TITLE")) {
+  switch (gameStateChar) {
+  
+    case 'M': // Menu
     titlescreen();
-  } else if (gameState.equals("GAME")) {
+    break;
+    
+    case 'G': //Running Game
     Gamestart();
+    break;
+    
+    case 'S': // Stats (needed)
+    //statsScreen();
+    break;
+    
+    case 'P':   // Pause (if you add one later)
+      // pauseScreen();
+      break;
+
+    case 'X':   // Settings
+      // settingsScreen();
+      break;
   }
 }
+  
 void keyPressed() {
 
-  if (gameState.equals("TITLE") && (key == ' ' || keyCode == 32)) {
+  if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
 
-    gameState = "GAME";
+    gameStateChar = 'G';
     restartgame();
   }
 
 
-  else if (gameState.equals("GAME")) {
+  else if (gameStateChar == 'G') {
 
     if (key == 'r' || key == 'R') {
-      gameState = "TITLE";
+      gameStateChar = 'M';
     }
 
 
@@ -65,14 +83,6 @@ void keyPressed() {
         skier = new Skier(width / 2, height / 2 + 50);
       }
     }
-
-
-    //if (key == 'y' || key == 'Y') {
-    //  if (yeti == null) {
-    //    yeti = new Yeti(width / 2, 100);
-    //  }
-    //}
-
 
     if (key == 'o' || key == 'O') {
       float oX = random(width);
@@ -133,7 +143,7 @@ textAlign(CENTER, CENTER);
   textFont(title2);
   textSize(65);
   fill(255);
-  text("SkiFree!!! 2025!!!!", width/2  , height/2 - 190);
+  text("SkiFree 25", width/2  , height/2 - 190);
   textFont(title);
    textSize(80);
   
@@ -156,7 +166,7 @@ textAlign(CENTER, CENTER);
 
   textSize(14);
   fill(230);
-  text("Developed by the goats a.k.a. Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
+  text("Developed by Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
 
 }
 
