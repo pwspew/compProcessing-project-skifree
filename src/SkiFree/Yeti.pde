@@ -4,20 +4,6 @@ Yeti yeti;
 float worldOffsetY = 0;
 float verticalSpeed = 2;
 
-void setup() {
-  size(600, 900);
-  yeti = new Yeti(width / 2, -100);
-}
-
-void draw() {
-  background(#D6D6D6);
-
-  worldOffsetY += verticalSpeed;
-
-  yeti.update();
-  yeti.display(worldOffsetY);
-}
-
 // Yeti class
 class Yeti {
   float x, y;
