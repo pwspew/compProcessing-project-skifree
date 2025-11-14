@@ -30,8 +30,16 @@ void setup() {
   title2 =createFont("impact.ttf", 8);
 
   titleColors = new color[] {
-    color(255, 180, 80), // orange
-    color(100, 200, 255), // sky blue
+  color(180, 70, 70),    // muted red
+  color(190, 110, 70),   // muted red-orange
+  color(200, 140, 70),   // muted orange
+  color(210, 170, 70),   // muted yellow-orange
+  color(190, 180, 80),   // muted yellow
+  color(140, 170, 100),  // muted yellow-green
+  color(100, 160, 120),  // muted green
+  color(90, 145, 160),   // muted teal / cyan
+  color(100, 130, 180),  // muted blue
+  color(130, 100, 170)   // muted purple
   };
 
   obstacles = new ArrayList<Obstacle>();
