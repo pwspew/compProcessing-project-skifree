@@ -1,8 +1,11 @@
-
+//UI by Logan Bywater
 
 color[] titleColors;
 float colorTimer = 0;
 char gameStateChar = 'M'; //M = Menu, G = Game, S = Stats, P = Pause, X = Settings (Hard, Easy, medium)/speed
+float gameTimer = 0.00;
+float skierDistance = 00;
+float skierSpeed = 00;
 
 float z = 0;
 float x = 0;
@@ -180,7 +183,14 @@ textAlign(CENTER, CENTER);
 // Game screen
 void Gamestart() {
   background(245, 245, 255);
-
+  fill(200);
+  rect(470,100,200,130);
+  fill(0);
+  textSize(30);
+  text("Time: " + gameTimer, 430,55);
+  text("Distance: " + skierDistance + "m", 465, 95);
+  text("Speed: " + skierSpeed + "m/s", 465, 135);
+  
   for (Obstacle o : obstacles) {
     o.display();
   }
