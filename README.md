@@ -24,6 +24,14 @@ Ski Free is a very old fast-paced, chaotic downhill adventure where you carve th
 ![SK3](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skier55.png)
 ![SK4](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skiercrash.png)
 ![SK5](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skierjump.png)
+
+## Obstacle Sprites
+![O1](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/RockObstacle.png)
+![O2](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/RockObstacle2.png)
+![O3](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/TreeObstacle.png)
+![04](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/TreeObstacle2.png)
+![05](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/RampObstacle.png)
+
 ## Collaborators
 * [Ethan Shafran (README creator)](https://github.com/9730837) 
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
