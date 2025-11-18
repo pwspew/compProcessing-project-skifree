@@ -18,8 +18,12 @@ Ski Free is a very old fast-paced, chaotic downhill adventure where you carve th
 ## Quick Mockup of UI
 ![UImockup](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skifree.png)
 
-## The Skier
+## Sprites
 ![skierguywhoisthegreatest](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skierrightfr.png)
+![SK2](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skier45fr.png)
+![SK3](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skier55.png)
+![SK4](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skiercrash.png)
+![SK5](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/skierjump.png)
 ## Collaborators
 * [Ethan Shafran (README creator)](https://github.com/9730837) 
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
