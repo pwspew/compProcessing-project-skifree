@@ -98,7 +98,7 @@ void keyPressed() {
     if (key == 'o' || key == 'O') {
       float oX = random(width);
       float oY = random(150, height - 50);
-      int oType = (int)random(2); 
+      int oType = (int)random(4); 
       obstacles.add(new Obstacle(oX, oY, oType));
     }
   }
