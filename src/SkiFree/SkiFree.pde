@@ -145,7 +145,7 @@ void titlescreen() {
   if (b > width/2 - 10 || b < -10)
     speed4 *= -1;
   fill(c);
-    stroke(20);
+    noStroke();
     rectMode(CENTER);
     rect(width/2, height/2 - 185, 480, 100);
     fill(255);
