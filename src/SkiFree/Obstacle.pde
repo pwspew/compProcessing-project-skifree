@@ -17,7 +17,7 @@ class Obstacle {
   void display() {
 
     if (type == 3) {
-      img = loadImage("RockObstacle.png")
+      img = loadImage("RockObstacle.png");
     }
     if (type == 2) {
       img = loadImage("TreeObstacle.png");
