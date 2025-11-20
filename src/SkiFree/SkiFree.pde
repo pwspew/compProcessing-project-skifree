@@ -6,6 +6,7 @@ float colorTimer = 0;
 
 char gameStateChar = 'M';   // M = Menu, G = Game, S = Stats, P = Pause, X = Settings
 float gameTimer = 0.00;
+boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
 
@@ -17,9 +18,6 @@ PFont title, title2, other;
 
 Skier skier;
 ArrayList<Obstacle> obstacles;
-
-
-// Yeti yeti; 
 
 void setup() {
   size(600, 900);
@@ -44,7 +42,6 @@ void setup() {
 
 void draw() {
   switch (gameStateChar) {
-
     case 'M':
       titlescreen();
       break;
@@ -65,7 +62,6 @@ void draw() {
 }
 
 void keyPressed() {
-
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
     gameStateChar = 'G';
     restartgame();
@@ -77,56 +73,38 @@ void keyPressed() {
       gameStateChar = 'M';
     }
 
-    if (key == 's' || key == 'S') {
-      if (skier == null) {
-        skier = new Skier(width/2, height/2 + 50);
-      }
-    }
-
-    if (key == 'o' || key == 'O') {
-      float oX = random(width);
-      float oY = random(150, height - 50);
-      int oType = (int)random(4);
-      obstacles.add(new Obstacle(oX, oY, oType));
-    }
-    
+    // Skier movement
     if (keyCode == RIGHT) {
-  skier.direction++;
-  if (skier.direction > 3) skier.direction = 3;   // clamp max turn
-}
-
-if (keyCode == LEFT) {
-  skier.direction--;
-  if (skier.direction < -3) skier.direction = -3; // clamp max turn
-}
-
-if (keyCode == DOWN) {
-skier.direction = 0;
-}
-
-if (skier != null) {
-  if (keyCode == LEFT || keyCode == RIGHT) {
-    skier.crashSit = 0;
-  }
-}
-
-    /*
-    if (key == 'y' || key == 'Y') {
-      yeti = new Yeti(width/2, -100);  // appears at top of screen
+      skier.direction++;
+      if (skier.direction > 3) skier.direction = 3;   // clamp max turn
+      skier.crashSit = 0;
     }
-    */
+
+    if (keyCode == LEFT) {
+      skier.direction--;
+      if (skier.direction < -3) skier.direction = -3; // clamp max turn
+      skier.crashSit = 0;
+    }
+
+    if (keyCode == DOWN) {
+      skier.direction = 0;
+      skier.crashSit = 0;
+    }
   }
+  if (!gameTimerStarted && (keyCode == DOWN || keyCode == LEFT || keyCode == RIGHT)) {
+    gameTimerStarted = true; 
+  }
+
 }
 
 void restartgame() {
-  skier = null;
-  //yeti = null;
-  obstacles.clear();
+  skier = new Skier(width/2, height/2 + 50);  // Spawn skier automatically
+  obstacles.clear(); 
+  gameTimer = 0.00;
+  gameTimerStarted = false;
 }
 
-
 void titlescreen() {
-
   colorTimer = millis() * 0.0002;
   int TC1 = int(colorTimer) % titleColors.length;
   int TC2 = (TC1 + 1) % titleColors.length;
@@ -180,30 +158,27 @@ void titlescreen() {
   text("Developed by Ollie, Jamie, Ethan, Logan, and Adam", width/2, height - 30);
 }
 
-
 void Gamestart() {
-
   background(245, 245, 255);
+  
+  if (gameTimerStarted) {
+  gameTimer += 1.0 / frameRate; // adds time in seconds
+}
 
   fill(200);
-  rect(470,100,200,130);
 
-  fill(0);
-  textSize(30);
-  text("Time: " + gameTimer, 430,55);
-  text("Distance: " + skierDistance + "m", 465, 95);
-  text("Speed: " + skierSpeed + "m/s", 465, 135);
-
+  // Display obstacles (but do not spawn new ones yet)
   for (Obstacle o : obstacles) {
     o.display();
   }
+  
+  rect(470,100,270,130,10);
 
-  /*
-  if (yeti != null) {
-    yeti.update();
-    yeti.display(0);  // no world offset
-  }
-  */
+  fill(0);
+  textSize(30);
+  text("Time: " + nf(gameTimer, 0,2) + "s", 440,55);
+  text("Distance: " + skierDistance + "m", 445, 95);
+  text("Speed: " + skierSpeed + "m/s", 445, 135);
 
   if (skier != null) {
     skier.display();
@@ -211,6 +186,6 @@ void Gamestart() {
 
   fill(0, 150);
   textSize(16);
-  text("Press 'S' (Skier), 'Y' (Yeti), 'O' (Obstacle) | 'R' to Reset",
+  text("Use arrow keys to move | 'R' to Reset",
        width/2, height - 25);
 }
