@@ -32,6 +32,13 @@ Ski Free is an old, retro style, fast-paced and chaotic downhill adventure where
 ![04](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/TreeObstacle2.png)
 ![05](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/RampObstacle.png)
 
+## Yeti Sprites
+![Y1](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/YetiStanding.png)
+![Y2](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/YetiYelling.png)
+![Y3](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/YetiRunning1.png)
+![Y4](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/YetiRunning2.png)
+![Y5](https://github.com/pwspew/compProcessing-project-skifree/blob/main/images/YetiAttack.png)
+
 ## Collaborators
 * [Ethan Shafran (README creator)](https://github.com/9730837) 
 * [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
