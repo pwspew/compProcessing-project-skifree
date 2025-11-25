@@ -15,7 +15,11 @@ class Obstacle {
 
 
   void display() {
+    
+    y -= skierSpeed * 0.5;
+    x -= skierHorizontalSpeed * 0.5;
 
+    
     if (type == 3) {
       img = loadImage("RockObstacle.png");
     }
