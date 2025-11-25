@@ -5,10 +5,12 @@ color[] titleColors;
 float colorTimer = 0;
 
 char gameStateChar = 'M';   // M = Menu, G = Game, S = Stats, P = Pause, X = Settings
+char gameDifficulty = 'E'; //E = Easy, M = Medium, H = Hard
 float gameTimer = 0.00;
 boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
+float skierHorizontalSpeed = 0;
 
 // Menu animation var
 float z = 0, x = 0, a = 0, b = 0;
@@ -18,6 +20,10 @@ PFont title, title2, other;
 
 Skier skier;
 ArrayList<Obstacle> obstacles;
+
+char E = 1; //Easy is normal
+//char M = 1.5; //medium is 50% harder
+char H = 2; //Hard is 2x as hard
 
 void setup() {
   size(600, 900);
@@ -62,7 +68,7 @@ void draw() {
 }
 
 void keyPressed() {
-  
+
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
     gameStateChar = 'G';
     restartgame();
@@ -72,16 +78,16 @@ void keyPressed() {
       gameStateChar = 'M';
     }
 
-if (key == 'o' || key == 'O') {
-  obstacles.add(
-    new Obstacle(
-      (float)random(50, width - 50),    // random X inside screen
-      (float)random(50, height - 50),   // random Y inside screen
-      int(random(0, 4))                 // random type 0–3
-    )
-  );
-}
-  
+    if (random(1) < 1) {   // 1% chance per frame
+      obstacles.add(
+        new Obstacle(
+        (float)random(50, width - 50),
+        height + 100,
+        int(random(0, 4))
+        )
+        );
+    }
+
     // Skier movement
     if (keyCode == RIGHT) {
       skier.direction++;
@@ -106,10 +112,33 @@ if (key == 'o' || key == 'O') {
 
   if (skier.direction == 0) {
     skierSpeed = 18;
+    skierHorizontalSpeed = 0;
   } else if (skier.direction == -1) {
     skierSpeed = 13;
+    skierHorizontalSpeed = 3;
   } else if (skier.direction == -2) {
     skierSpeed = 6;
+    skierHorizontalSpeed = 7;
+  } else if (skier.direction == -3) {
+    skierSpeed = 0;
+    skierHorizontalSpeed = 0;
+  } else if (skier.direction == 3) {
+    skierSpeed = 0;
+    skierHorizontalSpeed = 0;
+  } else if (skier.direction == 2) {
+    skierSpeed = 6;
+    skierHorizontalSpeed = 7;
+  } else if (skier.direction == 1) {
+    skierSpeed = 13;
+    skierHorizontalSpeed = 3;
+  }
+  if (skier.crashSit == 1) {
+    skierSpeed = 0;
+  }
+  if (skier.direction < 0) {
+    skierHorizontalSpeed = -abs(skierHorizontalSpeed); // skier leaning LEFT
+  } else if (skier.direction > 0) {
+    skierHorizontalSpeed = abs(skierHorizontalSpeed);  // skier leaning RIGHT
   }
 }
 
@@ -184,8 +213,42 @@ void Gamestart() {
   fill(200);
 
   // Display obstacles (but do not spawn new ones yet)
+  if (random(1) < 0.02) {
+    obstacles.add(new Obstacle(
+      random(50, width - 50),
+      height + 50,
+      int(random(0, 4))
+    ));
+  }
+
+  // Spawn from left when skier moves RIGHT
+  if (skierHorizontalSpeed > 0 && random(1) < 0.02) {
+    obstacles.add(new Obstacle(
+      -50,                    // off-screen left
+      random(50, height - 50),
+      int(random(0, 4))
+    ));
+  }
+
+  // Spawn from right when skier moves LEFT
+  if (skierHorizontalSpeed < 0 && random(1) < 0.02) {
+    obstacles.add(new Obstacle(
+      width + 50,             // off-screen right
+      random(50, height - 50),
+      int(random(0, 4))
+    ));
+  }
+// displaying the obstacles
   for (Obstacle o : obstacles) {
     o.display();
+  }
+
+  // Removing off-screen obstacles to prevent memory problems
+  for (int i = obstacles.size() - 1; i >= 0; i--) {
+    Obstacle o = obstacles.get(i);
+    if (o.y < -50 || o.y > height + 100 || o.x < -100 || o.x > width + 100) {
+      obstacles.remove(i);
+    }
   }
 
   rect(470, 100, 270, 130, 10);
