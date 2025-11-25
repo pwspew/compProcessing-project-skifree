@@ -10,7 +10,7 @@ boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
 
-// Menu animation vars
+// Menu animation var
 float z = 0, x = 0, a = 0, b = 0;
 float speed = 2, speed2 = 2.1, speed3 = 2.2, speed4 = 2.3;
 
@@ -31,10 +31,10 @@ void setup() {
   title2 = createFont("impact.ttf", 8);
 
   titleColors = new color[] {
-    color(180,70,70), color(190,110,70), color(200,140,70),
-    color(210,170,70), color(190,180,80), color(140,170,100),
-    color(100,160,120), color(90,145,160), color(100,130,180),
-    color(130,100,170)
+    color(180, 70, 70), color(190, 110, 70), color(200, 140, 70),
+    color(210, 170, 70), color(190, 180, 80), color(140, 170, 100),
+    color(100, 160, 120), color(90, 145, 160), color(100, 130, 180),
+    color(130, 100, 170)
   };
 
   obstacles = new ArrayList<Obstacle>();
@@ -42,37 +42,46 @@ void setup() {
 
 void draw() {
   switch (gameStateChar) {
-    case 'M':
-      titlescreen();
-      break;
+  case 'M':
+    titlescreen();
+    break;
 
-    case 'G':
-      Gamestart();
-      break;
+  case 'G':
+    Gamestart();
+    break;
 
-    case 'S':
-      break;
+  case 'S':
+    break;
 
-    case 'P':
-      break;
+  case 'P':
+    break;
 
-    case 'X':
-      break;
+  case 'X':
+    break;
   }
 }
 
 void keyPressed() {
+  
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
     gameStateChar = 'G';
     restartgame();
-  }
-
-  else if (gameStateChar == 'G') {
+  } else if (gameStateChar == 'G') {
 
     if (key == 'r' || key == 'R') {
       gameStateChar = 'M';
     }
 
+if (key == 'o' || key == 'O') {
+  obstacles.add(
+    new Obstacle(
+      (float)random(50, width - 50),    // random X inside screen
+      (float)random(50, height - 50),   // random Y inside screen
+      int(random(0, 4))                 // random type 0–3
+    )
+  );
+}
+  
     // Skier movement
     if (keyCode == RIGHT) {
       skier.direction++;
@@ -92,14 +101,21 @@ void keyPressed() {
     }
   }
   if (!gameTimerStarted && (keyCode == DOWN || keyCode == LEFT || keyCode == RIGHT)) {
-    gameTimerStarted = true; 
+    gameTimerStarted = true;
   }
 
+  if (skier.direction == 0) {
+    skierSpeed = 18;
+  } else if (skier.direction == -1) {
+    skierSpeed = 13;
+  } else if (skier.direction == -2) {
+    skierSpeed = 6;
+  }
 }
 
 void restartgame() {
   skier = new Skier(width/2, height/2 + 50);  // Spawn skier automatically
-  obstacles.clear(); 
+  obstacles.clear();
   gameTimer = 0.00;
   gameTimerStarted = false;
 }
@@ -160,10 +176,10 @@ void titlescreen() {
 
 void Gamestart() {
   background(245, 245, 255);
-  
+
   if (gameTimerStarted) {
-  gameTimer += 1.0 / frameRate; // adds time in seconds
-}
+    gameTimer += 1.0 / frameRate; // adds time in seconds
+  }
 
   fill(200);
 
@@ -171,12 +187,12 @@ void Gamestart() {
   for (Obstacle o : obstacles) {
     o.display();
   }
-  
-  rect(470,100,270,130,10);
+
+  rect(470, 100, 270, 130, 10);
 
   fill(0);
   textSize(30);
-  text("Time: " + nf(gameTimer, 0,2) + "s", 440,55);
+  text("Time: " + nf(gameTimer, 0, 2) + "s", 440, 55);
   text("Distance: " + skierDistance + "m", 445, 95);
   text("Speed: " + skierSpeed + "m/s", 445, 135);
 
@@ -187,5 +203,5 @@ void Gamestart() {
   fill(0, 150);
   textSize(16);
   text("Use arrow keys to move | 'R' to Reset",
-       width/2, height - 25);
+    width/2, height - 25);
 }
