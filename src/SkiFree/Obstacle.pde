@@ -32,7 +32,7 @@ class Obstacle {
     }
     if (img != null) {
       imageMode(CENTER);
-      image(img, x, y, 50, 50); // draw tree image
+      image(img, x, y, 50, 50); // draw tree and rock images
     } else {
       // fallback in case image fails to load
       fill(0, 150, 0);
