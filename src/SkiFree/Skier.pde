@@ -1,3 +1,5 @@
+// ollie made this class
+// logan made all the sprites to work and stuff
 class Skier {
   float x, y;
   int direction = -2;
