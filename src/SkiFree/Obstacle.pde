@@ -11,7 +11,7 @@ class Obstacle {
     this.type =type;
   }
 
-// skier is slowed when hitting an object
+
   void display() {
     
     y -= skierSpeed * 0.5;
