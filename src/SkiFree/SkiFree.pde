@@ -73,7 +73,6 @@ void keyPressed() {
     if (key == 's' || key == 'S') {
     if (gameStateChar == 'G' || gameStateChar == 'M') {
       gameStateChar = 'S';  
-      return;                // stops further key pressing and stuff
     }
   }
 
@@ -541,7 +540,7 @@ void Gamestart() {
   }
 
   rect(470, 100, 270, 130, 10);
-
+ void statsscreen();
   fill(0);
   textSize(30);
   text("Time: " + nf(gameTimer, 0, 2) + "s", 440, 55);
