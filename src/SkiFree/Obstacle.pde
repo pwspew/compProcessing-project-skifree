@@ -17,7 +17,7 @@ class Obstacle {
     y -= skierSpeed * 0.5;
     x -= skierHorizontalSpeed * 0.5;
 
-    
+    // load obstacle images
     if (type == 3) {
       img = loadImage("RockObstacle.png");
     }
