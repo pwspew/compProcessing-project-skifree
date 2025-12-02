@@ -3,6 +3,7 @@ class Obstacle {
   float x, y; // position of obstacle
   int type;   // which obstacle image to use
   PImage img; // image for the obstacle
+  float hitRadius = 20;
 
   // Constructor 
   Obstacle(float x, float y, int type) {
