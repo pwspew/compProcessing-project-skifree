@@ -1,10 +1,10 @@
 // Obstacle code by Jamie Duersch
 class Obstacle {
-  float x, y;
-  int type;
+  float x, y; // position of obstacle
+  int type;   // which obstacle image to use
   PImage img; // image for the obstacle
 
-  // Constructor
+  // Constructor 
   Obstacle(float x, float y, int type) {
     this.x = x;
     this.y = y;
@@ -13,7 +13,8 @@ class Obstacle {
 
 
   void display() {
-    
+
+    // Move obstacle relative to skier speed
     y -= skierSpeed * 0.5;
     x -= skierHorizontalSpeed * 0.5;
 
@@ -35,7 +36,7 @@ class Obstacle {
     }
     if (img != null) {
       imageMode(CENTER);
-      image(img, x, y, 50, 50); // draw tree and rock images
+      image(img, x, y, 50, 50); // draw obstacle images
     } else {
       // fallback in case image fails to load
       fill(0, 150, 0);
