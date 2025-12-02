@@ -4,9 +4,6 @@ class Obstacle {
   int type;
   PImage img; // image for the obstacle
 
-
-
-
   // Constructor
   Obstacle(float x, float y, int type) {
     this.x = x;
