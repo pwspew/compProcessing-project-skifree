@@ -20,7 +20,7 @@ class Obstacle {
 
     // load obstacle images
     if (type == 4) {
-      img = loadImage("RampObstacle.png")
+      img = loadImage("RampObstacle.png");
       }
     if (type == 3) {
       img = loadImage("RockObstacle.png");
