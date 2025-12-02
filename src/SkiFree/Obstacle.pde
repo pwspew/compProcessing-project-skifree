@@ -1,4 +1,4 @@
-// Jamie Duersch
+// Obstacle code by Jamie Duersch
 class Obstacle {
   float x, y;
   int type;
