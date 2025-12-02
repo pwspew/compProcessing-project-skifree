@@ -13,7 +13,7 @@ class Obstacle {
 
 
   void display() {
-    
+    // skier is slowed when hitting an object
     y -= skierSpeed * 0.5;
     x -= skierHorizontalSpeed * 0.5;
 
