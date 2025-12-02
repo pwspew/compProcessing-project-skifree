@@ -247,9 +247,27 @@ void Gamestart() {
     ));
   }
 // displaying the obstacles
+  // displaying the obstacles and checking for crashes
   for (Obstacle o : obstacles) {
-    o.display();
+  o.display();
+
+  // --- START CIRCULAR CRASH DETECTION ---
+  
+  // This check assumes your Obstacle class has:
+  // 1. 'o.x' (for its center x)
+  // 2. 'o.y' (for its center y)
+  // 3. 'o.hitRadius' (a variable just like the one in your Skier class)
+
+  float distance = dist(skier.x, skier.y, o.x, o.y);
+
+  if (distance < skier.hitRadius + o.hitRadius) {
+    // COLLISION!
+    skier.crashSit = 1; // Set the skier's state to crashed
+    
+    // You can also add other crash logic here, like playing a sound
   }
+  // --- END CRASH DETECTION ---
+}
 
   // Removing off-screen obstacles to prevent memory problems
   for (int i = obstacles.size() - 1; i >= 0; i--) {
@@ -273,7 +291,7 @@ void Gamestart() {
 
   fill(0, 150);
   textSize(16);
-  text("Use arrow keys to move | 'R' to Reset",
+  text("Use arrow keys to move | 'R' to Reset | 'S' for Stats",
     width/2, height - 25);
 }
 void statsscreen() {
