@@ -37,47 +37,47 @@ class Skier {
   }
 
   void drawCrashSitCharacter() {
-    img = loadImage("skiercrash.png");
+    //img = loadImage("skiercrash.png");
     imageMode(CENTER);
-    image(img, x, y, 75, 75);
+    image(skierCrash, x, y, 75, 75);
   }
 
   void drawStraightCharacter() {
-    img = loadImage("skier90fr.png");
+    //img = loadImage("skier90fr.png");
     imageMode(CENTER);
-    image(img, x, y, 75, 75);
+    image(skier90, x, y, 75, 75);
   }
 
   void draw35LeftCharacter() {
-    img = loadImage("skier55.png");
-    drawFlipped(img, x - 40, y, 75, 75);
+    //img = loadImage("skier55.png");
+    drawFlipped(skier55, x - 40, y, 75, 75);
   }
 
   void draw75LeftCharacter() {
-    img = loadImage("skier45fr.png");
-    drawFlipped(img, x - 40, y, 75, 75);
+    //img = loadImage("skier45fr.png");
+    drawFlipped(skier45, x - 40, y, 75, 75);
   }
 
   void drawLeftCharacter() {
-    img = loadImage("skierrightfr.png");
-    drawFlipped(img, x - 40, y, 75, 75);
+    //img = loadImage("skierrightfr.png");
+    drawFlipped(skierRight, x - 40, y, 75, 75);
   }
 
   void draw35RightCharacter() {
-    img = loadImage("skier55.png");
+    //img = loadImage("skier55.png");
     imageMode(CENTER);
-    image(img, x, y, 75, 75);
+    image(skier55, x, y, 75, 75);
   }
 
   void draw75RightCharacter() {
-    img = loadImage("skier45fr.png");
+    //img = loadImage("skier45fr.png");
     imageMode(CENTER);
-    image(img, x, y, 75, 75);
+    image(skier45, x, y, 75, 75);
   }
 
   void drawRightCharacter() {
-    img = loadImage("skierrightfr.png");
+    //img = loadImage("skierrightfr.png");
     imageMode(CENTER);
-    image(img, x, y, 75, 75);
+    image(skierRight, x, y, 75, 75);
   }
 }
