@@ -43,6 +43,12 @@ void setup() {
     color(130, 100, 170)
   };
 
+  skierCrash = loadImage("skiercrash.png");
+  skier90 = loadImage("skier90fr.png");
+  skier55 = loadImage("skier55.png");
+  skier45 = loadImage("skier45fr.png");
+  skierRight = loadImage("skierrightfr.png");
+
   obstacles = new ArrayList<Obstacle>();
 }
 
@@ -75,6 +81,10 @@ void keyPressed() {
       gameStateChar = 'S';  
     }
   }
+
+  if (gameStateChar == 'S' && (key == 'r' || key == 'R')) {
+      gameStateChar = 'M'; // Return to Menu
+    }
 
 
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
