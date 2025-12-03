@@ -3,23 +3,17 @@ class Obstacle {
   float x, y; // position of obstacle
   int type;   // which obstacle image to use
   PImage img; // image for the obstacle
-  float hitRadius = 20;
+  float hitRadius;
 
   // Constructor 
   Obstacle(float x, float y, int type) {
     this.x = x;
     this.y = y;
-    this.type =type;
+    this.type =type
+    this.hitRadius = 20;
   }
 
-
-  void display() {
-
-    // Move obstacle relative to skier speed
-    y -= skierSpeed * 0.5;
-    x -= skierHorizontalSpeed * 0.5;
-
-    // load obstacle images
+   // load obstacle images (moved so that it doesn't read the data every frame)
     if (type == 4) {
       img = loadImage("RampObstacle.png");
       }
@@ -35,6 +29,13 @@ class Obstacle {
     if (type == 0) {
       img = loadImage("RockObstacle2.png");
     }
+
+  void display() {
+
+    // Move obstacle relative to skier speed
+    y -= skierSpeed * 0.5;
+    x -= skierHorizontalSpeed * 0.5;
+
     if (img != null) {
       imageMode(CENTER);
       image(img, x, y, 50, 50); // draw obstacle images
