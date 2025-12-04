@@ -17,11 +17,11 @@ class Skier {
       drawCrashSitCharacter();
     } else {
       if (direction == -3) drawLeftCharacter();
-      else if (direction == -2) draw75LeftCharacter();
+      else if (direction == -2) draw50LeftCharacter();
       else if (direction == -1) draw35LeftCharacter();
       else if (direction == 0) drawStraightCharacter();
       else if (direction == 1) draw35RightCharacter();
-      else if (direction == 2) draw75RightCharacter();
+      else if (direction == 2) draw50RightCharacter();
       else if (direction == 3) drawRightCharacter();
     }
   }
@@ -29,7 +29,7 @@ class Skier {
   // Flipping logic
   void drawFlipped(PImage img, float x, float y, float w, float h) {
     pushMatrix();
-    translate(x, y);  
+    translate(x+20, y);  
     scale(-1, 1); 
     imageMode(CENTER); 
     image(img, 0, 0, w, h);
@@ -39,45 +39,45 @@ class Skier {
   void drawCrashSitCharacter() {
     //img = loadImage("skiercrash.png");
     imageMode(CENTER);
-    image(skierCrash, x, y, 75, 75);
+    image(skierCrash, x, y, 50, 50);
   }
 
   void drawStraightCharacter() {
     //img = loadImage("skier90fr.png");
     imageMode(CENTER);
-    image(skier90, x, y, 75, 75);
+    image(skier90, x, y, 50, 50);
   }
 
   void draw35LeftCharacter() {
     //img = loadImage("skier55.png");
-    drawFlipped(skier55, x - 40, y, 75, 75);
+    drawFlipped(skier55, x - 40, y, 50, 50);
   }
 
-  void draw75LeftCharacter() {
+  void draw50LeftCharacter() {
     //img = loadImage("skier45fr.png");
-    drawFlipped(skier45, x - 40, y, 75, 75);
+    drawFlipped(skier45, x - 40, y, 50, 50);
   }
 
   void drawLeftCharacter() {
     //img = loadImage("skierrightfr.png");
-    drawFlipped(skierRight, x - 40, y, 75, 75);
+    drawFlipped(skierRight, x - 40, y, 50, 50);
   }
 
   void draw35RightCharacter() {
     //img = loadImage("skier55.png");
     imageMode(CENTER);
-    image(skier55, x, y, 75, 75);
+    image(skier55, x, y, 50, 50);
   }
 
-  void draw75RightCharacter() {
+  void draw50RightCharacter() {
     //img = loadImage("skier45fr.png");
     imageMode(CENTER);
-    image(skier45, x, y, 75, 75);
+    image(skier45, x, y, 50, 50);
   }
 
   void drawRightCharacter() {
     //img = loadImage("skierrightfr.png");
     imageMode(CENTER);
-    image(skierRight, x, y, 75, 75);
+    image(skierRight, x, y, 50, 50);
   }
 }
