@@ -11,7 +11,7 @@ boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
 float skierHorizontalSpeed = 0;
-PImage skierCrash, skier90, skier55, skier45, skierRight, skifreeLogo;
+PImage skierCrash, skier90, skier55, skier45, skierRight;
 
 // Menu animation var
 float z = 0, x = 0, a = 0, b = 0;
@@ -43,12 +43,12 @@ void setup() {
     color(100, 160, 120), color(90, 145, 160), color(100, 130, 180),
     color(130, 100, 170)
   };
-  skifreeLogo = loadImage("skilogo2.png");
-  skierCrash = loadImage("skiercrash.png");
-  skier90 = loadImage("skier90fr.png");
-  skier55 = loadImage("skier55.png");
-  skier45 = loadImage("skier45fr.png");
-  skierRight = loadImage("skierrightfr.png");
+
+ skierCrash = loadImage("skiercrash.png");
+ skier90 = loadImage("skier90fr.png");
+ skier55 = loadImage("skier55.png");
+ skier45 = loadImage("skier45fr.png");
+ skierRight = loadImage("skierrightfr.png");
 
   obstacles = new ArrayList<Obstacle>();
 }
@@ -64,7 +64,7 @@ void draw() {
     break;
 
   case 'S':
-    statsscreen();
+  statsscreen();
     break;
 
   case 'P':
@@ -76,16 +76,16 @@ void draw() {
 }
 
 void keyPressed() {
-
-  if (key == 's' || key == 'S') {
+  
+    if (key == 's' || key == 'S') {
     if (gameStateChar == 'G' || gameStateChar == 'M') {
-      gameStateChar = 'S';
+      gameStateChar = 'S';  
     }
   }
 
   if (gameStateChar == 'S' && (key == 'r' || key == 'R')) {
-    gameStateChar = 'M';
-  }
+  gameStateChar = 'M';
+}
 
 
 
@@ -182,41 +182,40 @@ void titlescreen() {
   noStroke();
   rectMode(CORNER);
 
-  //rect(z+150, height/2+2, 20, 15, 5);
-  //z += speed;
-  //if (z > width/2 - 10 || z < -10) speed *= -1;
+  rect(z+150, height/2+2, 20, 15, 5);
+  z += speed;
+  if (z > width/2 - 10 || z < -10) speed *= -1;
 
-  //rect(x+150, height/2-18, 20, 15, 5);
-  //x += speed2;
-  //if (x > width/2 - 10 || x < -10) speed2 *= -1;
+  rect(x+150, height/2-18, 20, 15, 5);
+  x += speed2;
+  if (x > width/2 - 10 || x < -10) speed2 *= -1;
 
-  //rect(a+150, height/2-78, 20, 15, 5);
-  //a += speed3;
-  //if (a > width/2 - 10 || a < -10) speed3 *= -1;
+  rect(a+150, height/2-78, 20, 15, 5);
+  a += speed3;
+  if (a > width/2 - 10 || a < -10) speed3 *= -1;
 
-  //rect(b+150, height/2-98, 20, 15, 5);
-  //b += speed4;
-  //if (b > width/2 - 10 || b < -10) speed4 *= -1;
+  rect(b+150, height/2-98, 20, 15, 5);
+  b += speed4;
+  if (b > width/2 - 10 || b < -10) speed4 *= -1;
 
   fill(c);
   rectMode(CENTER);
   rect(width/2, height/2 - 185, 480, 100);
-  imageMode(CENTER);
-  image(skifreeLogo, width/2, height/2 - 200);
+
   textFont(title2);
-  textSize(50);
+  textSize(65);
   fill(255);
-  //text("SkiFree 25", width/2, height/2 - 190);
+  text("SkiFree 25", width/2, height/2 - 190);
 
   stroke(255);
-  //line(width/4 - 15, height/2 - 90, 3*width/4 + 15, height/2 - 90);
-  //line(width/4 - 5, height/2 - 70, 3*width/4 + 5, height/2 - 70);
-  //line(width/4 - 5, height/2 - 10, 3*width/4 + 5, height/2 - 10);
-  //line(width/4 - 15, height/2 + 10, 3*width/4 + 15, height/2 + 10);
+  line(width/4 - 15, height/2 - 90, 3*width/4 + 15, height/2 - 90);
+  line(width/4 - 5, height/2 - 70, 3*width/4 + 5, height/2 - 70);
+  line(width/4 - 5, height/2 - 10, 3*width/4 + 5, height/2 - 10);
+  line(width/4 - 15, height/2 + 10, 3*width/4 + 15, height/2 + 10);
 
   textFont(other);
   noStroke();
-  textSize(30);
+  textSize(23);
   text("Press space to Begin", width/2, height/2 - 40);
 
   textSize(14);
@@ -230,6 +229,15 @@ void Gamestart() {
   if (gameTimerStarted) {
     gameTimer += 1.0 / frameRate; // adds time in seconds
   }
+  
+  if (gameTimerStarted) {
+    gameTimer += 1.0 / frameRate;
+  }
+
+
+  skierDistance += skierSpeed * (1.0 / frameRate);
+
+
 
   fill(200);
 
@@ -239,48 +247,48 @@ void Gamestart() {
       random(50, width - 50),
       height + 50,
       int(random(0, 4))
-      ));
+    ));
   }
 
   // Spawn from left when skier moves RIGHT
   if (skierHorizontalSpeed > 0 && random(1) < 0.02) {
     obstacles.add(new Obstacle(
-      -50, // off-screen left
+      -50,                    // off-screen left
       random(50, height - 50),
       int(random(0, 4))
-      ));
+    ));
   }
 
   // Spawn from right when skier moves LEFT
   if (skierHorizontalSpeed < 0 && random(1) < 0.02) {
     obstacles.add(new Obstacle(
-      width + 50, // off-screen right
+      width + 50,             // off-screen right
       random(50, height - 50),
       int(random(0, 4))
-      ));
+    ));
   }
-  // displaying the obstacles
+// displaying the obstacles
   // displaying the obstacles and checking for crashes
   for (Obstacle o : obstacles) {
-    o.display();
+  o.display();
 
-    // --- START CIRCULAR CRASH DETECTION ---
+  // --- START CIRCULAR CRASH DETECTION ---
+  
+  // This check assumes your Obstacle class has:
+  // 1. 'o.x' (for its center x)
+  // 2. 'o.y' (for its center y)
+  // 3. 'o.hitRadius' (a variable just like the one in your Skier class)
 
-    // This check assumes your Obstacle class has:
-    // 1. 'o.x' (for its center x)
-    // 2. 'o.y' (for its center y)
-    // 3. 'o.hitRadius' (a variable just like the one in your Skier class)
+  float distance = dist(skier.x, skier.y, o.x, o.y);
 
-    float distance = dist(skier.x, skier.y, o.x, o.y);
-
-    if (distance < skier.hitRadius + o.hitRadius) {
-      // COLLISION!
-      skier.crashSit = 1; // Set the skier's state to crashed
-
-      // You can also add other crash logic here, like playing a sound
-    }
-    // --- END CRASH DETECTION ---
+  if (distance < skier.hitRadius + o.hitRadius) {
+    // COLLISION!
+    skier.crashSit = 1; // Set the skier's state to crashed
+    
+    // You can also add other crash logic here, like playing a sound
   }
+  // --- END CRASH DETECTION ---
+}
 
   // Removing off-screen obstacles to prevent memory problems
   for (int i = obstacles.size() - 1; i >= 0; i--) {
@@ -295,8 +303,20 @@ void Gamestart() {
   fill(0);
   textSize(30);
   text("Time: " + nf(gameTimer, 0, 2) + "s", 440, 55);
-  text("Distance: " + skierDistance + skierSpeed * (1.0 / frameRate) + "m", 445, 95);
   text("Speed: " + skierSpeed + "m/s", 445, 135);
+  text("Time: " + nf(gameTimer, 0, 2) + "s", 440, 55);
+
+float displayDistance = round(skierDistance * 10) / 10.0;
+String distText;
+if (displayDistance >= 1000) {
+  distText = nf(displayDistance / 1000.0, 0, 2) + " km";
+} else {
+  distText = nf(displayDistance, 0, 1) + " m";
+}
+text("Distance: " + distText, 445, 95);
+
+text("Speed: " + skierSpeed + "m/s", 445, 135);
+
 
   if (skier != null) {
     skier.display();
