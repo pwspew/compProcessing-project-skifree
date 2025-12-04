@@ -9,9 +9,9 @@ class Obstacle {
   Obstacle(float x, float y, int type) {
     this.x = x;
     this.y = y;
-    this.type =type
+    this.type = type;
     this.hitRadius = 20;
-  }
+  
 
    // load obstacle images (moved so that it doesn't read the data every frame)
     if (type == 4) {
@@ -29,6 +29,7 @@ class Obstacle {
     if (type == 0) {
       img = loadImage("RockObstacle2.png");
     }
+  }
 
   void display() {
 
