@@ -229,6 +229,15 @@ void Gamestart() {
   if (gameTimerStarted) {
     gameTimer += 1.0 / frameRate; // adds time in seconds
   }
+  
+  if (gameTimerStarted) {
+    gameTimer += 1.0 / frameRate;
+  }
+
+
+  skierDistance += skierSpeed * (1.0 / frameRate);
+
+
 
   fill(200);
 
