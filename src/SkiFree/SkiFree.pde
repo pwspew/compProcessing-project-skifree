@@ -11,6 +11,7 @@ boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
 float skierHorizontalSpeed = 0;
+PImage skierCrash, skier90, skier55, skier45, skierRight;
 
 // Menu animation var
 float z = 0, x = 0, a = 0, b = 0;
@@ -21,9 +22,9 @@ PFont title, title2, other;
 Skier skier;
 ArrayList<Obstacle> obstacles;
 
-char E = 1; //Easy is normal
-//char M = 1.5; //medium is 50% harder
-char H = 2; //Hard is 2x as hard
+float E = 1.0;
+float M = 1.5;
+float H = 2.0;
 
 void setup() {
   size(600, 900);
@@ -43,11 +44,11 @@ void setup() {
     color(130, 100, 170)
   };
 
-  skierCrash = loadImage("skiercrash.png");
-  skier90 = loadImage("skier90fr.png");
-  skier55 = loadImage("skier55.png");
-  skier45 = loadImage("skier45fr.png");
-  skierRight = loadImage("skierrightfr.png");
+ skierCrash = loadImage("skiercrash.png");
+ skier90 = loadImage("skier90fr.png");
+ skier55 = loadImage("skier55.png");
+ skier45 = loadImage("skier45fr.png");
+ skierRight = loadImage("skierrightfr.png");
 
   obstacles = new ArrayList<Obstacle>();
 }
@@ -83,8 +84,9 @@ void keyPressed() {
   }
 
   if (gameStateChar == 'S' && (key == 'r' || key == 'R')) {
-      gameStateChar = 'M'; // Return to Menu
-    }
+  gameStateChar = 'M';
+}
+
 
 
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
@@ -292,7 +294,7 @@ void Gamestart() {
   fill(0);
   textSize(30);
   text("Time: " + nf(gameTimer, 0, 2) + "s", 440, 55);
-  text("Distance: " + skierDistance + "m", 445, 95);
+  text("Distance: " + skierDistance + skierSpeed * (1.0 / frameRate) + "m", 445, 95);
   text("Speed: " + skierSpeed + "m/s", 445, 135);
 
   if (skier != null) {
