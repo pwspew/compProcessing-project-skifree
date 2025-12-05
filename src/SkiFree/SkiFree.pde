@@ -43,7 +43,7 @@ void setup() {
     color(130, 100, 170)
   };
   skifreeLogo = loadImage("skilogo2.png");
-  skifreeLogo2 = loadImage("logo.png");
+  skifreeLogo2 = loadImage("logo-1.png.png");
   skierCrash = loadImage("skiercrash.png");
   skier90 = loadImage("skier90fr.png");
   skier55 = loadImage("skier55.png");
