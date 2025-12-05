@@ -11,7 +11,7 @@ boolean gameTimerStarted = false;
 float skierDistance = 0;
 float skierSpeed = 0;
 float skierHorizontalSpeed = 0;
-PImage skierCrash, skier90, skier55, skier45, skierRight, skifreeLogo;
+PImage skierCrash, skier90, skier55, skier45, skierRight, skifreeLogo, skifreeLogo2;
 float invincibleUntil = 0;
 
 // Menu animation var
@@ -44,6 +44,7 @@ void setup() {
     color(100, 160, 120), color(90, 145, 160), color(100, 130, 180),
     color(130, 100, 170)
   };
+  skifreeLogo2 = loadImage("logo-1.png.png");
   skifreeLogo = loadImage("skilogo2.png");
   skierCrash = loadImage("skiercrash.png");
   skier90 = loadImage("skier90fr.png");
