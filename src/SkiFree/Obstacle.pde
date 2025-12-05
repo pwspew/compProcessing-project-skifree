@@ -10,7 +10,7 @@ class Obstacle {
     this.x = x;
     this.y = y;
     this.type = type;
-    this.hitRadius = 20;
+    this.hitRadius = 12;
   
 
    // load obstacle images (moved so that it doesn't read the data every frame)
