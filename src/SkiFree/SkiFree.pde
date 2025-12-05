@@ -223,6 +223,7 @@ void titlescreen() {
   rect(width/2, height/2 - 185, 480, 100);
   imageMode(CENTER);
   image(skifreeLogo, width/2, height/2 - 200);
+  image(skifreeLogo2, width/2, height/2 - 500);
   textFont(title2);
   textSize(50);
   fill(255);
