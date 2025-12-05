@@ -5,7 +5,7 @@ class Skier {
   int direction = -2;
   int crashSit = 1;
   PImage img;
-  float hitRadius = 25; //Change this so that the skier fits the crash radius
+  float hitRadius = 7; //Change this so that the skier fits the crash radius
 
   Skier(float x, float y) {
     this.x = x;
