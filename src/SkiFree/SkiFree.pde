@@ -23,9 +23,7 @@ PFont title, title2, other;
 Skier skier;
 ArrayList<Obstacle> obstacles;
 
-float E = 1.0;
-float M = 1.5;
-float H = 2.0;
+float D = 1.0;
 
 void setup() {
   size(600, 900);
@@ -44,8 +42,8 @@ void setup() {
     color(100, 160, 120), color(90, 145, 160), color(100, 130, 180),
     color(130, 100, 170)
   };
-  skifreeLogo2 = loadImage("logo-1.png.png");
   skifreeLogo = loadImage("skilogo2.png");
+  skifreeLogo2 = loadImage("logo.png");
   skierCrash = loadImage("skiercrash.png");
   skier90 = loadImage("skier90fr.png");
   skier55 = loadImage("skier55.png");
@@ -78,18 +76,39 @@ void draw() {
 }
 
 void keyPressed() {
+  // If stats screen is open, only allow 'R' to resume
+  if (gameStateChar == 'S') {
+    if (keyCode == 49 || keyCode == 97) {
+    D = 1.0;
+    }
+    
+    if (keyCode == 50 || keyCode == 98) {
+    D = 1.5;
+    }
+    
+    if (keyCode == 51 || keyCode == 99) {
+    D = 2.0;
+    }
+    
+    if (key == 'r' || key == 'R') {
+      gameStateChar = 'G';   // resume
+    }
+    return;   // block all other keys
+  }
+
+
 
   if (key == 's' || key == 'S') {
-    if (gameStateChar == 'G' || gameStateChar == 'M') {
+    if (gameStateChar == 'G') {
       gameStateChar = 'S';
     }
   }
 
   if (gameStateChar == 'S' && (key == 'r' || key == 'R')) {
-    gameStateChar = 'M';
+    gameStateChar = 'G';
   }
 
-
+  //if (gameStateChar) {}
 
   if (gameStateChar == 'M' && (key == ' ' || keyCode == 32)) {
     gameStateChar = 'G';
@@ -100,7 +119,7 @@ void keyPressed() {
       gameStateChar = 'M';
     }
 
-    if (skier.crashSit == 0 && random(1) < 1) {   // 1% chance per frame
+    if (skier.crashSit == 0 && skierSpeed > 0 && random(1) < 1) {   // 1% chance per frame
       obstacles.add(
         new Obstacle(
         (float)random(50, width - 50),
@@ -134,29 +153,29 @@ void keyPressed() {
   }
 
   if (skier.direction == 0) {
-    skierSpeed = 18;
-    skierHorizontalSpeed = 0;
+    skierSpeed = 18 * D;
+    skierHorizontalSpeed = 0 * D;
   } else if (skier.direction == -1) {
-    skierSpeed = 13;
-    skierHorizontalSpeed = 3;
+    skierSpeed = 13 * D;
+    skierHorizontalSpeed = 3 * D;
   } else if (skier.direction == -2) {
-    skierSpeed = 6;
-    skierHorizontalSpeed = 7;
+    skierSpeed = 6 * D;
+    skierHorizontalSpeed = 7 * D;
   } else if (skier.direction == -3) {
-    skierSpeed = 0;
-    skierHorizontalSpeed = 0;
+    skierSpeed = 0 * D;
+    skierHorizontalSpeed = 0 * D;
   } else if (skier.direction == 3) {
-    skierSpeed = 0;
-    skierHorizontalSpeed = 0;
+    skierSpeed = 0 * D;
+    skierHorizontalSpeed = 0 * D;
   } else if (skier.direction == 2) {
-    skierSpeed = 6;
-    skierHorizontalSpeed = 7;
+    skierSpeed = 6 * D;
+    skierHorizontalSpeed = 7 * D;
   } else if (skier.direction == 1) {
-    skierSpeed = 13;
-    skierHorizontalSpeed = 3;
+    skierSpeed = 13 * D;
+    skierHorizontalSpeed = 3 * D;
   }
   if (skier.crashSit == 1) {
-    skierSpeed = 0;
+    skierSpeed = 0 * D;
   }
   if (skier.direction < 0) {
     skierHorizontalSpeed = -abs(skierHorizontalSpeed); // skier leaning LEFT
@@ -164,21 +183,21 @@ void keyPressed() {
     skierHorizontalSpeed = abs(skierHorizontalSpeed);  // skier leaning RIGHT
   }
   if (skier.crashSit == 1) {
-    skierSpeed = 0;
-    skierHorizontalSpeed = 0;
+    skierSpeed = 0 * D;
+    skierHorizontalSpeed = 0 * D;
   }
 
   // --- If skier crashed, only allow recovery ---
   if (skier.crashSit == 1) {
     if (keyCode == LEFT || keyCode == RIGHT || keyCode == DOWN) {
-        skier.crashSit = 0;
-        skier.direction = 0;
+      skier.crashSit = 0;
+      skier.direction = 0;
 
-        // PROTECTION STARTS HERE instead
-        invincibleUntil = millis() + 2000;
+      // PROTECTION STARTS HERE instead
+      invincibleUntil = millis() + 2000;
     }
     return;
-}
+  }
 }
 
 void restartgame() {
@@ -202,21 +221,6 @@ void titlescreen() {
   noStroke();
   rectMode(CORNER);
 
-  //rect(z+150, height/2+2, 20, 15, 5);
-  //z += speed;
-  //if (z > width/2 - 10 || z < -10) speed *= -1;
-
-  //rect(x+150, height/2-18, 20, 15, 5);
-  //x += speed2;
-  //if (x > width/2 - 10 || x < -10) speed2 *= -1;
-
-  //rect(a+150, height/2-78, 20, 15, 5);
-  //a += speed3;
-  //if (a > width/2 - 10 || a < -10) speed3 *= -1;
-
-  //rect(b+150, height/2-98, 20, 15, 5);
-  //b += speed4;
-  //if (b > width/2 - 10 || b < -10) speed4 *= -1;
 
   fill(c);
   rectMode(CENTER);
@@ -226,15 +230,11 @@ void titlescreen() {
   image(skifreeLogo2, width/2, height/2 + 125);
   skifreeLogo2.resize(400,200);
   textFont(title2);
-  textSize(10);
+  textSize(50);
   fill(255);
   //text("SkiFree 25", width/2, height/2 - 190);
 
   stroke(255);
-  //line(width/4 - 15, height/2 - 90, 3*width/4 + 15, height/2 - 90);
-  //line(width/4 - 5, height/2 - 70, 3*width/4 + 5, height/2 - 70);
-  //line(width/4 - 5, height/2 - 10, 3*width/4 + 5, height/2 - 10);
-  //line(width/4 - 15, height/2 + 10, 3*width/4 + 15, height/2 + 10);
 
   textFont(other);
   noStroke();
@@ -247,12 +247,12 @@ void titlescreen() {
 }
 
 void Gamestart() {
-  background(245, 245, 255);
+  background(230);
 
   if (gameTimerStarted) {
     gameTimer += 1.0 / frameRate; // adds time in seconds
   }
-  
+
   skierDistance +=  (skierSpeed * (1.0 / frameRate));
 
   fill(200);
@@ -260,7 +260,7 @@ void Gamestart() {
   // Display obstacles (but do not spawn new ones yet)
   if (skier.crashSit == 0 && skierSpeed > 0) {
 
-    if (random(1) < 0.02) {
+    if (random(1) < 0.02 * D) {
       obstacles.add(new Obstacle(random(50, width-50), height+50, int(random(0, 4))));
     }
 
@@ -283,18 +283,17 @@ void Gamestart() {
     float distance = dist(skier.x, skier.y, o.x, o.y);
 
     // Only collide if NOT invincible
-if (millis() > invincibleUntil) {
-  if (distance < skier.hitRadius + o.hitRadius) {
+    if (millis() > invincibleUntil) {
+      if (distance < skier.hitRadius + o.hitRadius) {
 
-    skier.crashSit = 1;
-    skierSpeed = 0;
-    skierHorizontalSpeed = 0;
+        skier.crashSit = 1;
+        skierSpeed = 0;
+        skierHorizontalSpeed = 0;
 
-    // Start 2-second protection AFTER recovery
-    invincibleUntil = millis() + 2000;  // 2000 ms = 2 seconds
-  }
-}
-
+        // Start 2-second protection AFTER recovery
+        invincibleUntil = millis() + 500;  // 2000 ms = 2 seconds
+      }
+    }
   }
 
   // Removing off-screen obstacles to prevent memory problems
@@ -318,8 +317,8 @@ if (millis() > invincibleUntil) {
   }
 
   fill(0, 150);
-  textSize(16);
-  text("Use arrow keys to move | 'R' to Reset | 'S' for Stats",
+  textSize(14);
+  text("Use arrow keys to move | 'R' to Reset \n 'S' for Stats & Settings",
     width/2, height - 25);
 }
 void statsscreen() {
@@ -332,4 +331,5 @@ void statsscreen() {
   text("Time: " + nf(gameTimer, 0, 2) + "s", width/2, height/2);
   text("Distance: " + skierDistance + "m", width/2, height/2 + 40);
   text("Press 'R' to return", width/2, height - 50);
+  text("Press 1 - Easy \n Press 2 - Medium \n Press 3 - Hard", width/2, height - 220);
 }
