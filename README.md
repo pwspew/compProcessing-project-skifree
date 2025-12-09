@@ -41,7 +41,7 @@ Ski Free is an old, retro style, fast-paced and chaotic downhill adventure where
 
 ## Collaborators
 * [Ethan Shafran (README creator)](https://github.com/9730837) 
-* [Jamie Duersch (Timeliner)](https://github.com/9711519-png) 
+* [Jamie Duersch Created the obstacle class, timeline, and obstacle sprites](https://github.com/9711519-png) 
 * [Oliver Gringich (UI mockup/Github screen creator and Skier Class creator)](https://github.com/pwspew) 
 * [Logan Bywater (Diagram, UI creator, and SkiFree class creator including logic) ](https://github.com/LOGAN-bruh) 
 * [Adam Fredrick (Title + 1-Sentence Pitch)](https://github.com/adamfredrick))
