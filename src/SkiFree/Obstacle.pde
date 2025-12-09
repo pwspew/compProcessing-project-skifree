@@ -5,15 +5,15 @@ class Obstacle {
   PImage img; // image for the obstacle
   float hitRadius;
 
-  // Constructor 
+  // Constructor sets up obstacle
   Obstacle(float x, float y, int type) {
-    this.x = x;
+    this.x = x; // set position
     this.y = y;
-    this.type = type;
-    this.hitRadius = 12;
+    this.type = type; //obstacle type
+    this.hitRadius = 12; // hit box size
   
 
-   // load obstacle images (moved so that it doesn't read the data every frame)
+   // load obstacle images
     if (type == 4) {
       img = loadImage("RampObstacle.png");
       }
@@ -34,9 +34,10 @@ class Obstacle {
   void display() {
 
     // Move obstacle relative to skier speed
-    y -= skierSpeed * 0.5;
-    x -= skierHorizontalSpeed * 0.5;
+    y -= skierSpeed * 0.5; //skier moves forward, obstacles move up
+    x -= skierHorizontalSpeed * 0.5; // obstacles move sideways based on skier horizontal speed
 
+    // draws the obstacle image
     if (img != null) {
       imageMode(CENTER);
       image(img, x, y, 50, 50); // draw obstacle images
